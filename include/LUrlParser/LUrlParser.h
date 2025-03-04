@@ -28,6 +28,7 @@
 #pragma once
 
 #include <string>
+#include <unordered_map>
 
 namespace LUrlParser
 {
@@ -55,6 +56,7 @@ namespace LUrlParser
 		std::string fragment_;
 		std::string userName_;
 		std::string password_;
+		std::unordered_map<std::string, std::string> url_parameters_;
 
 		/// return 'true' if the parsing was successful
 		bool isValid() const { return errorCode_ == LUrlParserError_Ok; }
@@ -63,8 +65,7 @@ namespace LUrlParser
 		bool getPort(int* outPort) const;
 
 		/// parse the URL
-		static ParseURL parseURL(const std::string& url);
-
+		static ParseURL *parseURL(const std::string& url);
 	private:
 		ParseURL() = default;
 		explicit ParseURL(LUrlParserError errorCode)
