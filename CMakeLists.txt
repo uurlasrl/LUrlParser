@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.0)
-
 project("LUrlParser")
 
 add_library(LUrlParser src/LUrlParser.cpp include/LUrlParser/LUrlParser.h)
