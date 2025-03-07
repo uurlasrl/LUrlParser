@@ -95,7 +95,8 @@ LUrlParser::ParseURL *LUrlParser::ParseURL::parseURL(const std::string& URL){
 
 	 // try to read scheme
 	{
-		const char* localString = strchr(currentString, ':');
+
+		const char* localString = (!strchr(currentString, ':'))?(strchr(currentString, '/')-1):strchr(currentString, ':');
 
 		if (!localString){
 			delete result;
